@@ -74,11 +74,10 @@ def decision_to_win_or_lose(oneself_hp, enemy_hp):
         return 2
     else :
         return 4
-
 # ##
 
-# 出力
 
+# 出力
 call(main_character.name, enemy.name)
 
 while (True):
