@@ -73,12 +73,15 @@ def decision_to_win_or_lose(oneself_hp, enemy_hp):
     elif oneself_hp >= 1 and enemy_hp <= 0:
         return 2
     else :
-        return 4
+        return 3
 # ##
 
 
 # 出力
 call(main_character.name, enemy.name)
+def juage(check):
+    ary = ["続行", "{enemy.name}の勝ち！", "{main_character.name}の勝ち！", "両者引き分け！"]
+    return ary[check]
 
 while (True):
     turn = turn_progression(turn)
@@ -86,15 +89,51 @@ while (True):
 
     buttle(main_character.hp, main_character.power, enemy.hp, enemy.power)
     check = decision_to_win_or_lose(main_character.hp, enemy.hp)
-    if check == 0:
-        print("続行！")
-        continue
-    elif check == 1:
-        print("{}の勝ち！".format(enemy.name))
+    juage(check)
+    if check == 3:
         break
-    elif check == 2:
-        print("{}の勝ち！".format(main_character.name))
-        break
-    else :
-        print("両者引き分け！")
-        break
+
+# ①関数をもっと細かく 出力もコメントではなく、関数の名前で説明できるといい
+# ②コメントを減らす
+# 
+# 
+# コメントで書くべきなのは
+# ・コピーライトとか
+# ・コメントがあるからこそ読みやすくなるもの
+#   →万が一読みづらい正規表現とか？
+#       正規表現すらも、変数名で説明できる。
+# 
+# クリーンコードの考え方として、
+# KW：コメントを各時間でわかりやすい変数名を考えるべき
+# 関数が動詞
+# 変数が名詞
+# 
+# いろんな流派がある
+# 例：名詞抽出とか
+# 
+# 【テクニック】
+# KW：説明変数
+# ・条件分岐はどんなものでも考える時間が発生する
+#       →変数名などでわかったら手間が省ける
+# 
+#
+# ゼロや1などを、配列に入れてしまう。
+# 
+# 
+# 配列を使ってif文を消す 
+# 
+# 
+# 
+# 参考コード
+# KW：①テンプレートメソッドパターン
+# と
+# KW：②ファクトリーメソッドパターン
+# 
+# ①
+# abstract
+# これを継承 。クラス？の抽象化！
+# 
+# ②必ず一定の処理をするために、ある過程を強制させる
+# インスタンスの抽象化
+# 
+# #
